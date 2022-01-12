@@ -1,4 +1,3 @@
-import '../App.css';
 import Ipod from './Ipod'
 
 function App() {
