@@ -1,4 +1,5 @@
 import React from 'react';
+import ZingTouch from 'zingtouch';
 
 // Class component for wheel of Ipod
 class Wheel extends React.Component{
@@ -7,13 +8,23 @@ class Wheel extends React.Component{
         super();
     }
 
+    // Using zingtouch add rotate wheel property to wheel
+    rotateWheel = () => {
+        var containerElement = document.getElementById('wheel-container');
+        var activeRegion = ZingTouch.Region(containerElement);
+        var childElement = document.getElementById('inner-container');
+        activeRegion.bind(childElement, 'rotate', function(event){
+            //Perform Operations
+            console.log("rotate");
+        });
+    }
     // Rendering the component
     render = () => {
         return(
             // Wheel Container div
-            <div style = {styles.wheelContainer} className='wheel-container'>
+            <div style = {styles.wheelContainer} id ='wheel-container'>
                 {/* Wheel div */}
-                <div style = {styles.wheel}>
+                <div id='inner-container' style = {styles.wheel} onMouseOver={this.rotateWheel}>
                     {/* Div for button container in top row i.e only menu button*/}
                     <div style = {styles.buttonContainer}>
                         {/* Menu button div */}
@@ -44,16 +55,16 @@ class Wheel extends React.Component{
 // Styles for wheel container, wheel and all buttons
 const styles = {
     wheelContainer : {
-        height : '13rem',
-        width : 'inherit',
+        height : '15rem',
+        width : '100%',
         alignSelf : 'flex-end',
         backgroundColor : 'lightgrey'
     },
     wheel : {
-        width : '15rem',
-        height : 'inherit',
+        width : '80%',
+        height : '90%',
         backgroundColor : 'white',
-        margin : 'auto',
+        margin : '1rem auto',
         borderRadius : '50%',
         display : 'flex',
         flexDirection : 'row',
