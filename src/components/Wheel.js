@@ -55,7 +55,7 @@ class Wheel extends React.Component{
 // Styles for wheel container, wheel and all buttons
 const styles = {
     wheelContainer : {
-        height : '15rem',
+        height : '14rem',
         width : '100%',
         alignSelf : 'flex-end',
         backgroundColor : 'lightgrey'
