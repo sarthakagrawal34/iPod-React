@@ -1,5 +1,6 @@
 import React from 'react';
 import Wheel from './Wheel';
+import Screen from './Screen';
 
 class Ipod extends React.Component{
     constructor(){
@@ -10,6 +11,7 @@ class Ipod extends React.Component{
     render = () => {
         return(
             <div style = {styles.ipodCase}>
+                <Screen/>
                 <Wheel />
             </div>
         );
@@ -19,13 +21,14 @@ class Ipod extends React.Component{
 // Style of ipod case
 const styles = {
     ipodCase : {
-        height : '21rem',
-        width : '18rem',
+        height : '30rem',
+        width : '20rem',
         backgroundColor : 'black',
         margin : 'auto',
-        // We will display ipod items as flex and direction as coloumn
         display : 'flex',
         flexDirection : 'coloumn',
+        flexDirection : 'row',
+        flexWrap : 'wrap',
         justifyContent : 'center'
 
     }
