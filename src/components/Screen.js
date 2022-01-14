@@ -3,7 +3,7 @@ import Home from './Home';
 import Settings from './Settings';
 import Games from './Games';
 import Music from './Music';
-import Wallpapers from './Wallpapers';
+// import Wallpapers from './Wallpapers';
 import MyMusic from './MyMusic';
 import Artists from './Artists';
 
@@ -19,7 +19,7 @@ class Screen extends React.Component{
                 {/* <Home /> */}
                 {/* <Home activeItem={this.props.activeItem}/> */}
                 {this.props.activePage==='Home'?<Home activeItem={this.props.activeItem}/> : null}
-                {this.props.activePage==='Wallpapers'?<Wallpapers activeItem={this.props.activeItem}/> : null}
+                {/* {this.props.activePage==='Wallpapers'?<Wallpapers activeItem={this.props.activeItem}/> : null} */}
                 {this.props.activePage==='Music'?<Music activeItem={this.props.activeItem}/> : null}
                 {this.props.activePage==='Games'?<Games/> : null}
                 {this.props.activePage==='Settings'?<Settings /> : null}

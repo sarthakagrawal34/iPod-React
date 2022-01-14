@@ -62,9 +62,8 @@ class MyMusic extends React.Component{
                     <div style={styles.subInfo}>
                         {/* <h4>Song Name</h4>
                         <h5>Song Name</h5> */}
-                        <h4 style={{marginBottom:'0.5rem'}}>Senorita</h4>
-                        <p style={{marginBottom:'0'}}>Camilla Cobello</p>
-                        <p>Louis Fonsi</p>
+                        <h4 style={{marginBottom:'0.5rem'}}>Despacito</h4>
+                        <p style={{marginBottom:'0'}}>Louis Fonsi</p>
                     </div>
                 </div>
 

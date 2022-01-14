@@ -1,19 +1,19 @@
-import React from 'react';
+// import React from 'react';
 
-class Wallpapers extends React.Component{
+// class Wallpapers extends React.Component{
 
-    constructor(){
-        super();
-    }
+//     constructor(){
+//         super();
+//     }
 
-    render(){
-        return(
-            <div>
-            </div>
-        );
-    }
+//     render(){
+//         return(
+//             <div>
+//             </div>
+//         );
+//     }
 
-}
+// }
 
 
-export default Wallpapers; 
+// export default Wallpapers; 
