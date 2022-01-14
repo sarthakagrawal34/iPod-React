@@ -19,7 +19,7 @@ class Screen extends React.Component{
                 {/* <Home /> */}
                 {/* <Home activeItem={this.props.activeItem}/> */}
                 {this.props.activePage==='Home'?<Home activeItem={this.props.activeItem}/> : null}
-                {this.props.activePage==='Wallpapers'?<Wallpapers/> : null}
+                {this.props.activePage==='Wallpapers'?<Wallpapers activeItem={this.props.activeItem}/> : null}
                 {this.props.activePage==='Music'?<Music activeItem={this.props.activeItem}/> : null}
                 {this.props.activePage==='Games'?<Games/> : null}
                 {this.props.activePage==='Settings'?<Settings /> : null}
