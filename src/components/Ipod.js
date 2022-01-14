@@ -21,17 +21,18 @@ class Ipod extends React.Component{
         var self = this;
 
         activeRegion.bind(childElement, 'rotate', function(event){
-            //Perform Operations
+        //Perform Operations
+        
+        var newAngle = event.detail.distanceFromLast;
+        console.log(newAngle);
 
-            var newAngle = event.detail.distanceFromLast;
-            console.log(newAngle);
-
-            if(newAngle < 0){
-                console.log(change);
-                change++;
-                if(change === 15){
-                    console.log("change state");
-                    change = 0;
+        if(newAngle < 0){
+            console.log(change);
+            change++;
+            if(change === 15){
+                console.log("change state");
+                change = 0;
+                if(self.state.activePage === 'Home'){
                     if(self.state.activeItem === 'Wallpapers'){
                         self.setState({
                             activeItem : "Music"
@@ -49,14 +50,25 @@ class Ipod extends React.Component{
                             activeItem : "Wallpapers"
                         })
                     }
+                }else if(self.state.activePage === 'Music'){
+                    if(self.state.activeItem === 'MyMusic'){
+                        self.setState({
+                            activeItem : "Artists"
+                        })
+                    }else if(self.state.activeItem === 'Artists'){
+                        self.setState({
+                            activeItem : "MyMusic"
+                        })
+                    }
                 }
             }
-            else{
-                console.log(change);
-                change++;
-                if(change === 15){
-                    console.log("change state");
-                    change = 0;
+        }else{
+            console.log(change);
+            change++;
+            if(change === 15){
+                console.log("change state");
+                change = 0;
+                if(self.state.activePage == 'Home'){
                     if(self.state.activeItem === 'Wallpapers'){
                         self.setState({
                             activeItem : "Settings"
@@ -74,17 +86,39 @@ class Ipod extends React.Component{
                             activeItem : "Games"
                         })
                     }
+                }else if(self.state.activePage == 'Music'){
+                    if(self.state.activeItem === 'MyMusic'){
+                        self.setState({
+                            activeItem : "Artists"
+                        })
+                    }else if(self.state.activeItem === 'Artists'){
+                        self.setState({
+                            activeItem : "MyMusic"
+                        })
+                    }
                 }
             }
+        }
         });
     }
     
     changePage = () => {
 
-        this.setState({
-            activeItem : this.state.activeItem,
-            activePage : this.state.activeItem
-        })
+        // this.setState({
+        //     activeItem : this.state.activeItem,
+        //     activePage : this.state.activeItem
+        // })
+        if(this.state.activeItem === 'Music'){
+            this.setState({
+                activeItem : 'MyMusic',
+                activePage : this.state.activeItem
+            })
+        }else{
+            this.setState({
+                activeItem : this.state.activeItem,
+                activePage : this.state.activeItem
+            })
+        }
     }
 
     changePageToHomeScreen = () => {
