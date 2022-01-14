@@ -8,6 +8,7 @@ class Home extends React.Component{
     }
 
     render(){
+        let self = this;
         return(
             <div style={styles.homeScreen} id='home-screen'>
                 <div style={styles.menuList} id='menu-list'>
@@ -19,14 +20,26 @@ class Home extends React.Component{
                         <li>Settings</li>
                     </ul> */}
                     <ListGroup>
-                        <ListGroup.Item style={{border:'0'}} active>Wallpapers</ListGroup.Item>
+                        {/* <ListGroup.Item style={{border:'0'}} active>Wallpapers</ListGroup.Item>
                         <ListGroup.Item style={{border:'0'}}>Music</ListGroup.Item>
                         <ListGroup.Item style={{border:'0'}}>Games</ListGroup.Item>
-                        <ListGroup.Item style={{border:'0'}}>Settings</ListGroup.Item>
+                        <ListGroup.Item style={{border:'0'}}>Settings</ListGroup.Item> */}
+                        <ListGroup.Item style={{border:'0'}} className={this.props.activeItem==='Wallpapers'?'active':''}>
+                            Wallpapers {this.props.activeItem==='Wallpapers'?<span style={{float:'right' ,fontWeight:'bold'}}>&gt;</span>:''}
+                        </ListGroup.Item>
+                        <ListGroup.Item style={{border:'0'}} className={this.props.activeItem==='Music'?'active':''}>
+                            Music {this.props.activeItem==='Music'?<span style={{float:'right' ,fontWeight:'bold'}}>&gt;</span>:''}
+                        </ListGroup.Item>
+                        <ListGroup.Item style={{border:'0'}} className={this.props.activeItem==='Games'?'active':''}>
+                            Games {this.props.activeItem==='Games'?<span style={{float:'right' ,fontWeight:'bold'}}>&gt;</span>:''}
+                        </ListGroup.Item>
+                        <ListGroup.Item style={{border:'0'}} className={this.props.activeItem==='Settings'?'active':''}>
+                            Settings {this.props.activeItem==='Settings'?<span style={{float:'right' ,fontWeight:'bold'}}>&gt;</span>:''}
+                        </ListGroup.Item>
                     </ListGroup>
                 </div>
                 <div style={styles.imageContainer} id='image-container'>
-                <img style={{height:'100%' , width:'100%'}} src="https://www.pixelstalk.net/wp-content/uploads/2016/07/Free-Download-1080p-Full-HD-Images.jpg" />
+                <img style={{height:'100%' , width:'100%'}} src="https://www.pixelstalk.net/wp-content/uploads/2016/07/Free-Download-1080p-Full-HD-Images.jpg" alt= ''/>
                 </div>
             </div>
         );
