@@ -1,19 +1,19 @@
 import React from 'react';
-// import { ListGroup } from 'react-bootstrap';
 
-class Settings extends React.Component{
+class Games extends React.Component{
 
     constructor(){
         super();
     }
+
     render(){
-        // let self = this;
         return(
             <div style={styles.settings} >
-                <img style={styles.image} src="https://cdn-icons.flaticon.com/png/512/2040/premium/2040504.png?token=exp=1642132441~hmac=0ae3f3da050ecebf300eadb3569e6644" />
+                <img style={styles.image} src="https://media2.giphy.com/media/uYe2emzPgDfj2/giphy.webp?cid=ecf05e47fa455dac230de80fff0206077175b008801bc689&rid=giphy.webp" />
             </div>
         );
     }
+
 }
 
 const styles = {
@@ -25,12 +25,11 @@ const styles = {
         justifyContent : 'center'
     },
     image : {
-        width:'75%',
-        height:'75%',
+        width:'100%',
+        height:'100%',
         alignSelf : 'center'
     }
 }
 
 
-
-export default Settings; 
+export default Games; 
