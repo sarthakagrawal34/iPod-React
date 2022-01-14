@@ -128,16 +128,18 @@ class Ipod extends React.Component{
     }
 
     changePageToHomeScreen = () => {
-        if(this.state.activePage === 'Music' || this.state.activePage === 'Wallpapers' || this.state.activePage === 'Settings' || this.state.activePage === 'Games'){
+        // if(this.state.activePage === 'Music' || this.state.activePage === 'Wallpapers' || this.state.activePage === 'Settings' || this.state.activePage === 'Games'){
+        if(this.state.activeItem === 'MyMusic' || this.state.activeItem === 'Artists'){
             this.setState({
                 // activeItem : 'Wallpapers',
-                activeItem : this.state.activeItem,
+                // activeItem : this.state.activeItem,
+                activeItem : 'Music',
                 activePage : 'Home'
             })
         }else{
             this.setState({
-                // activeItem : this.state.activeItem,
-                activeItem : 'Music',
+                activeItem : this.state.activeItem,
+                // activeItem : 'Music',
                 activePage : 'Home'
             })
         }   
@@ -183,18 +185,19 @@ class Ipod extends React.Component{
 // Style of ipod case
 const styles = {
     ipodCase : {
-        height : '30rem',
+        height : '33rem',
         width : '20rem',
-        backgroundColor : 'black',
+        backgroundColor : 'lightgray',
         margin : 'auto',
         display : 'flex',
         flexDirection : 'row',
         flexWrap : 'wrap',
-        justifyContent : 'center'
+        justifyContent : 'center',
+        borderRadius : '24px'
     },
     wheelContainer : {
-        height : '14rem',
-        width : '100%',
+        height : '45%',
+        width : '90%',
         backgroundColor : 'lightgrey',
     },
     wheel : {

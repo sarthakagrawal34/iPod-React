@@ -1,5 +1,5 @@
 import React from 'react';
-import artistImage from './assets/image/artist.jpeg'
+import artistImage from '../assets/images/artist.jpg';
 
 class Artists extends React.Component{
 
@@ -11,17 +11,14 @@ class Artists extends React.Component{
     render(){
         return(
             <div style={styles.artistsContainer}>
-
                 <div style={styles.info}>
                     <div style={styles.imageContainer}>
                     </div>
-
                     <div style={styles.subInfo}>
                         <h4 style={{marginBottom:'0.5rem'}}>IPod.js <span><img style={styles.image} src="https://cdn-icons.flaticon.com/png/128/2908/premium/2908584.png?token=exp=1642135861~hmac=8675b27d38f2b709d2016d1cb79b7ae1" /></span></h4>
                         <p style={{marginBottom:'0'}}> React Project</p>
                         <p>Made by : Sarthak Agrawal</p>
                     </div>
-
                 </div>
 
                 <div style={styles.info2}>

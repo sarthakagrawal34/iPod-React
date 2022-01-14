@@ -39,7 +39,7 @@ class Home extends React.Component{
                     </ListGroup>
                 </div>
                 <div style={styles.imageContainer} id='image-container'>
-                <img style={{height:'100%' , width:'100%'}} src="https://www.pixelstalk.net/wp-content/uploads/2016/07/Free-Download-1080p-Full-HD-Images.jpg" alt= ''/>
+                    {/* <img style={{height:'100%' , width:'100%'}} src="https://www.pixelstalk.net/wp-content/uploads/2016/07/Free-Download-1080p-Full-HD-Images.jpg" alt= ''/> */}
                 </div>
             </div>
         );
@@ -62,7 +62,11 @@ const styles = {
     imageContainer : {
         // border:'1px solid black',
         height : '100%',
-        width : '50%'
+        width : '50%',
+        backgroundImage : 'url("https://www.pixelstalk.net/wp-content/uploads/2016/07/Free-Download-1080p-Full-HD-Images.jpg")',
+        backgroundSize : 'cover',
+        backgroundPosition : 'center',
+        borderRadius : '0 12px 12px 0'
     }
 }
 

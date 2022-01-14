@@ -22,7 +22,7 @@ class Music extends React.Component{
                     </ListGroup>
                 </div>
                 <div style={styles.imageContainer} id='image-container'>
-                    <img style={{height:'100%' , width:'100%'}} src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" />
+                    {/* <img style={{height:'100%' , width:'100%'}} src="https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg" /> */}
                 </div>
             </div>
         );
@@ -45,7 +45,11 @@ const styles = {
     imageContainer : {
         //border:'1px solid black',
         height : '100%',
-        width : '50%'
+        width : '50%',
+        backgroundImage : 'url("https://cdn.pixabay.com/photo/2021/08/25/20/42/field-6574455__340.jpg")',
+        backgroundSize : 'cover',
+        backgroundPosition : 'center',
+        borderRadius : '0 12px 12px 0'
     }
 }
 
