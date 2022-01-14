@@ -8,11 +8,9 @@ class Ipod extends React.Component{
         // We have to call the constructor of parent class that is super() as we are inheriting state constructor in our parent constructor
         super();
         this.state = {
-            activeItem : 'Wallpapers'
+            activeItem : 'Wallpapers',
+            activePage : 'Home'
         }
-    }
-    componentDidUpdate(){
-        console.log("Updated");
     }
     rotateWheel = () => {
         var currentAngle = 15;
@@ -81,12 +79,26 @@ class Ipod extends React.Component{
         });
     }
     
+    changePage = () => {
+
+        this.setState({
+            activeItem : this.state.activeItem,
+            activePage : this.state.activeItem
+        })
+    }
+
+    changePageToHomeScreen = () => {
+        this.setState({
+            activeItem : 'Wallpapers',
+            activePage : 'Home'
+        })
+    }
     render(){
         return(
             <div style = {styles.ipodCase}>
                 {/* <Screen />
                 <Wheel /> */}
-                <Screen activeItem={this.state.activeItem}/>
+                <Screen activeItem={this.state.activeItem} activePage={this.state.activePage}/>
                 {/*  Wheel Container div */}
                 <div style = {styles.wheelContainer} id ='wheel-container'>
                     {/* Wheel div */}
@@ -95,14 +107,14 @@ class Ipod extends React.Component{
                         <div style = {styles.buttonContainer}>
                             {/* Menu button div */}
                             <div style = {styles.menuButton}>
-                                <img style = {styles.image} src="https://cdn-icons-png.flaticon.com/128/168/168214.png"  alt= ''/>
+                                <img onClick={this.changePageToHomeScreen} style = {styles.image} src="https://cdn-icons-png.flaticon.com/128/168/168214.png"  alt= ''/>
                             </div>
                         </div>
                         {/* Div for button container in middle row i.e two buttons*/}
                         <div style = {styles.buttonContainer}>
                             <div style = {styles.midButtons}>
                                 <img style = {styles.image} src="https://cdn-icons.flaticon.com/png/128/3318/premium/3318711.png?token=exp=1641963794~hmac=ed3fe6305584a517f20c57388d9fb407" alt= ''/>
-                                <div style={{backgroundColor : 'lightgrey' , width : '5rem' , height : '5rem' , borderRadius : '50%'}}></div>
+                                <div onClick={this.changePage} style={{backgroundColor : 'lightgrey' , width : '5rem' , height : '5rem' , borderRadius : '50%'}}></div>
                                 <img style = {styles.image} src="https://cdn-icons.flaticon.com/png/128/3318/premium/3318559.png?token=exp=1641963889~hmac=f418d34818b548c0eac4ec42e3b07796" alt= ''/>
                             </div>
                         </div>

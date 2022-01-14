@@ -1,5 +1,6 @@
 import React from 'react';
-import Home from './Home'
+import Home from './Home';
+import Settings from './Settings';
 
 class Screen extends React.Component{
 
@@ -11,7 +12,12 @@ class Screen extends React.Component{
         return(
             <div style={styles.screen} id='screen-container'>
                 {/* <Home /> */}
-                <Home activeItem={this.props.activeItem}/>
+                {/* <Home activeItem={this.props.activeItem}/> */}
+                {this.props.activePage==='Home'?<Home activeItem={this.props.activeItem}/> : null}
+                {this.props.activePage==='Wallpapers'?<Home activeItem={this.props.activeItem}/> : null}
+                {this.props.activePage==='Games'?<Home activeItem={this.props.activeItem}/> : null}
+                {this.props.activePage==='Music'?<Home activeItem={this.props.activeItem}/> : null}
+                {this.props.activePage==='Settings'?<Settings /> : null}
             </div>
         );
     }
