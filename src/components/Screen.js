@@ -8,11 +8,6 @@ import MyMusic from './MyMusic';
 import Artists from './Artists';
 
 class Screen extends React.Component{
-
-    constructor(){
-        super();
-    }
-
     render(){
         return(
             <div style={styles.screen} id='screen-container'>
@@ -28,7 +23,6 @@ class Screen extends React.Component{
             </div>
         );
     }
-
 }
 
 const styles = {
@@ -41,5 +35,6 @@ const styles = {
         marginTop : '1rem'
     }
 }
+
 
 export default Screen; 

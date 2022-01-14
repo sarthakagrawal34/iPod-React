@@ -2,11 +2,6 @@ import React from 'react';
 import { ListGroup } from 'react-bootstrap';
 
 class Home extends React.Component{
-    // constructor(){
-    //     // We have to call the constructor of parent class that is super() as we are inheriting state constructor in our parent constructor
-    //     super();
-    // }
-
     render(){
         // let self = this;
         return(
@@ -53,7 +48,6 @@ class Home extends React.Component{
             </div>
         );
     }
-
 }
 
 const styles = {
@@ -96,5 +90,7 @@ const styles = {
         height: '20px',
     }
 }
+
+
 
 export default Home;

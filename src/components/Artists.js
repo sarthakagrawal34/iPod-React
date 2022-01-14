@@ -2,12 +2,6 @@ import React from 'react';
 import artistImage from '../assets/images/artist.jpg';
 
 class Artists extends React.Component{
-
-    // constructor(){
-    //     super();
-    // }
-
-
     render(){
         return(
             <div style={styles.artistsContainer}>
@@ -24,14 +18,12 @@ class Artists extends React.Component{
                         <p>Made by : Sarthak Agrawal</p>
                     </div>
                 </div>
-
                 <div style={styles.info2}>
                 <h5 style={{alignSelf : 'center'}}>Thanks for visiting the app !!</h5>
                 </div>
             </div>
         );
     }
-
 }
 
 const styles = {
@@ -88,5 +80,7 @@ const styles = {
         height: '20px',
     }
 }
+
+
 
 export default Artists; 

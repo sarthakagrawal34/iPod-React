@@ -186,7 +186,7 @@ class Ipod extends React.Component{
 
 
     render(){
-        let play = this.state.play
+        // let play = this.state.play
         return(
             <div style = {styles.ipodCase}>
                 {/* <Screen />
@@ -204,7 +204,7 @@ class Ipod extends React.Component{
                             {/* Menu button div */}
                             <div style = {styles.menuButton}>
                                 {/* <img onClick={this.changePageToHomeScreen} style = {styles.image} src="https://cdn-icons-png.flaticon.com/128/168/168214.png"  alt= ''/> */}
-                                <i onClick={this.changePageToHomeScreen} style = {styles.image} class="fas fa-bars"></i>
+                                <i onClick={this.changePageToHomeScreen} style = {styles.image} className="fas fa-bars"></i>
                             </div>
                         </div>
                         {/* Div for button container in middle row i.e two buttons*/}
@@ -213,7 +213,7 @@ class Ipod extends React.Component{
                                 {/* <img style = {styles.image} src="https://cdn-icons.flaticon.com/png/128/3318/premium/3318711.png?token=exp=1641963794~hmac=ed3fe6305584a517f20c57388d9fb407" alt= ''/>
                                 <div onClick={this.changePage} style={{backgroundColor : 'lightgrey' , width : '5rem' , height : '5rem' , borderRadius : '50%'}}></div>
                                 <img style = {styles.image} src="https://cdn-icons.flaticon.com/png/128/3318/premium/3318559.png?token=exp=1641963889~hmac=f418d34818b548c0eac4ec42e3b07796" alt= ''/> */}
-                                <i style = {styles.image} class="fas fa-fast-backward"></i>
+                                <i style = {styles.image} className="fas fa-fast-backward"></i>
                             <div onClick={this.changePage} style={{backgroundImage: 'linear-gradient(45deg, #8c8181, transparent)' , width : '5rem' , height : '5rem' , borderRadius : '50%'}}></div>
                             <i style = {styles.image} className="fas fa-fast-forward"></i>
                             </div>
@@ -222,7 +222,7 @@ class Ipod extends React.Component{
                         <div style = {styles.buttonContainer}>
                             <div onClick={this.toggle} style = {styles.playButton}>
                                 {/* <img style = {styles.image} src="https://t4.ftcdn.net/jpg/00/98/69/33/240_F_98693323_3UYg7H6Os6ygn338NLSFLsQndXn56zO0.jpg" alt= ''/> */}
-                                { play ?<i onClick={this.toggle} style = {styles.image} class="fas fa-play"></i>:<i onClick={this.toggle} style = {styles.image} class="fas fa-pause"></i>}
+                                <i onClick={this.toggle} style = {styles.image} className="fas fa-play"></i>:<i onClick={this.toggle} style = {styles.image} class="fas fa-pause"></i>
                             </div>
                         </div>
                     </div>
@@ -239,7 +239,7 @@ const styles = {
         width : '20rem',
         // backgroundColor : 'lightgray',
         backgroundImage: 'radial-gradient(#adb1b5, #4d4f50)',
-        margin : 'auto',
+        margin : '4rem auto',
         display : 'flex',
         flexDirection : 'row',
         flexWrap : 'wrap',
@@ -288,5 +288,7 @@ const styles = {
         color : 'white'
     },
 }
+
+
 
 export default Ipod;
