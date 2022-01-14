@@ -17,18 +17,19 @@ class Ipod extends React.Component{
         }
     }
     rotateWheel = () => {
-        var currentAngle = 15;
-        var containerElement = document.getElementById('wheel-container');
+        // var currentAngle = 15;
+        // var containerElement = document.getElementById('wheel-container');
+        var containerElement = document.getElementById('inner-container');
         var activeRegion = new ZingTouch.Region(containerElement);
-        var childElement = document.getElementById('inner-container');
+        // var childElement = document.getElementById('inner-container');
         var change = 0;
         var self = this;
         self.state.enter = self.state.enter + 1;
 
         if(self.state.enter < 2){
-            activeRegion.bind(childElement, 'rotate', function(event){
+            // activeRegion.bind(childElement, 'rotate', function(event){
                 //Perform Operations
-                
+            activeRegion.bind(containerElement, 'rotate', function(event){
                 var newAngle = event.detail.distanceFromLast;
                 console.log(newAngle);
     
@@ -76,7 +77,7 @@ class Ipod extends React.Component{
                     if(change === 15){
                         console.log("change state");
                         change = 0;
-                        if(self.state.activePage == 'Home'){
+                        if(self.state.activePage === 'Home'){
                             // if(self.state.activeItem === 'Wallpapers'){
                             if(self.state.activeItem === 'NowPlaying'){
                                 self.setState({
@@ -96,7 +97,7 @@ class Ipod extends React.Component{
                                     activeItem : "Games"
                                 })
                             }
-                        }else if(self.state.activePage == 'Music'){
+                        }else if(self.state.activePage === 'Music'){
                             if(self.state.activeItem === 'MyMusic'){
                                 self.setState({
                                     activeItem : "Artists"
@@ -159,7 +160,7 @@ class Ipod extends React.Component{
 
     toggle = () =>{
         if(this.state.activePage === 'MyMusic'){
-            if(this.state.play == true){
+            if(this.state.play === true){
                 this.state.audio.pause();
                 this.setState({
                     play : false
@@ -170,6 +171,7 @@ class Ipod extends React.Component{
                     play : true
                 })
             }
+            console.log("toggled");
         }
     }
 
@@ -184,6 +186,7 @@ class Ipod extends React.Component{
 
 
     render(){
+        let play = this.state.play
         return(
             <div style = {styles.ipodCase}>
                 {/* <Screen />
@@ -193,33 +196,38 @@ class Ipod extends React.Component{
                 </audio>
                 <Screen activeItem={this.state.activeItem} activePage={this.state.activePage} audio={this.state.audio}/>
                 {/*  Wheel Container div */}
-                <div style = {styles.wheelContainer} id ='wheel-container'>
+                {/* <div style = {styles.wheelContainer} id ='wheel-container'> */}
                     {/* Wheel div */}
                     <div id='inner-container' style = {styles.wheel} onMouseOver = {this.rotateWheel}>
                         {/* Div for button container in top row i.e only menu button*/}
                         <div style = {styles.buttonContainer}>
                             {/* Menu button div */}
                             <div style = {styles.menuButton}>
-                                <img onClick={this.changePageToHomeScreen} style = {styles.image} src="https://cdn-icons-png.flaticon.com/128/168/168214.png"  alt= ''/>
+                                {/* <img onClick={this.changePageToHomeScreen} style = {styles.image} src="https://cdn-icons-png.flaticon.com/128/168/168214.png"  alt= ''/> */}
+                                <i onClick={this.changePageToHomeScreen} style = {styles.image} class="fas fa-bars"></i>
                             </div>
                         </div>
                         {/* Div for button container in middle row i.e two buttons*/}
                         <div style = {styles.buttonContainer}>
                             <div style = {styles.midButtons}>
-                                <img style = {styles.image} src="https://cdn-icons.flaticon.com/png/128/3318/premium/3318711.png?token=exp=1641963794~hmac=ed3fe6305584a517f20c57388d9fb407" alt= ''/>
+                                {/* <img style = {styles.image} src="https://cdn-icons.flaticon.com/png/128/3318/premium/3318711.png?token=exp=1641963794~hmac=ed3fe6305584a517f20c57388d9fb407" alt= ''/>
                                 <div onClick={this.changePage} style={{backgroundColor : 'lightgrey' , width : '5rem' , height : '5rem' , borderRadius : '50%'}}></div>
-                                <img style = {styles.image} src="https://cdn-icons.flaticon.com/png/128/3318/premium/3318559.png?token=exp=1641963889~hmac=f418d34818b548c0eac4ec42e3b07796" alt= ''/>
+                                <img style = {styles.image} src="https://cdn-icons.flaticon.com/png/128/3318/premium/3318559.png?token=exp=1641963889~hmac=f418d34818b548c0eac4ec42e3b07796" alt= ''/> */}
+                                <i style = {styles.image} class="fas fa-fast-backward"></i>
+                            <div onClick={this.changePage} style={{backgroundImage: 'linear-gradient(45deg, #8c8181, transparent)' , width : '5rem' , height : '5rem' , borderRadius : '50%'}}></div>
+                            <i style = {styles.image} className="fas fa-fast-forward"></i>
                             </div>
                         </div>
                         {/* Div for button container in top row i.e only play-pause button*/}
                         <div style = {styles.buttonContainer}>
                             <div onClick={this.toggle} style = {styles.playButton}>
-                                <img style = {styles.image} src="https://t4.ftcdn.net/jpg/00/98/69/33/240_F_98693323_3UYg7H6Os6ygn338NLSFLsQndXn56zO0.jpg" alt= ''/>
+                                {/* <img style = {styles.image} src="https://t4.ftcdn.net/jpg/00/98/69/33/240_F_98693323_3UYg7H6Os6ygn338NLSFLsQndXn56zO0.jpg" alt= ''/> */}
+                                { play ?<i onClick={this.toggle} style = {styles.image} class="fas fa-play"></i>:<i onClick={this.toggle} style = {styles.image} class="fas fa-pause"></i>}
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            // </div>
         );
     }  
 }
@@ -229,7 +237,8 @@ const styles = {
     ipodCase : {
         height : '33rem',
         width : '20rem',
-        backgroundColor : 'lightgray',
+        // backgroundColor : 'lightgray',
+        backgroundImage: 'radial-gradient(#adb1b5, #4d4f50)',
         margin : 'auto',
         display : 'flex',
         flexDirection : 'row',
@@ -237,16 +246,16 @@ const styles = {
         justifyContent : 'center',
         borderRadius : '24px'
     },
-    wheelContainer : {
-        height : '45%',
-        width : '90%',
-        backgroundColor : 'lightgrey',
-    },
+    // wheelContainer : {
+    //     height : '45%',
+    //     width : '90%',
+    //     backgroundColor : 'lightgrey',
+    // },
     wheel : {
-        width : '80%',
-        height : '85%',
-        backgroundColor : 'white',
+        width : '75%',
+        height : '40%',
         margin : '1rem auto',
+        backgroundColor : '#4b4e52',
         borderRadius : '50%',
         display : 'flex',
         flexDirection : 'row',
@@ -275,8 +284,8 @@ const styles = {
     },
     image: {
         alignSelf : 'center',
-        width : '2rem',
-        height : '2rem'
+        fontSize: '1.5rem',
+        color : 'white'
     },
 }
 

@@ -3,19 +3,23 @@ import artistImage from '../assets/images/artist.jpg';
 
 class Artists extends React.Component{
 
-    constructor(){
-        super();
-    }
+    // constructor(){
+    //     super();
+    // }
 
 
     render(){
         return(
             <div style={styles.artistsContainer}>
+                <div style={styles.titleBar}>
+                    <p style={{fontWeight:'bold'}}>iPod</p>
+                    <img style={styles.battery} src="https://cdn-icons-png.flaticon.com/512/31/31570.png" alt =''></img>
+                </div>
                 <div style={styles.info}>
                     <div style={styles.imageContainer}>
                     </div>
                     <div style={styles.subInfo}>
-                        <h4 style={{marginBottom:'0.5rem'}}>IPod.js <span><img style={styles.image} src="https://cdn-icons.flaticon.com/png/128/2908/premium/2908584.png?token=exp=1642135861~hmac=8675b27d38f2b709d2016d1cb79b7ae1" /></span></h4>
+                        <h4 style={{marginBottom:'0.5rem'}}>IPod.js <span><img style={styles.image} src="https://cdn-icons.flaticon.com/png/512/471/premium/471713.png?token=exp=1642144331~hmac=b75239e6498d362f690f67e3d4ea2a35" alt =''/></span></h4>
                         <p style={{marginBottom:'0'}}> React Project</p>
                         <p>Made by : Sarthak Agrawal</p>
                     </div>
@@ -67,6 +71,22 @@ const styles = {
     subInfo : {
         alignSelf : 'center'
     },
+    titleBar : {
+        height:'10%',
+        width:'100%',
+        borderRadius:'12px 0 0 0',
+        backgroundImage: 'linear-gradient(0deg, rgb(123, 132, 140), transparent)',
+        borderBottom: '1px solid #6c757d',
+        padding : '1px 5px 10px 8px',
+        display:'flex',
+        flexDirecton : 'row',
+        justifyContent : 'space-between'
+
+    },
+    battery :{
+        width : '20px',
+        height: '20px',
+    }
 }
 
 export default Artists; 
