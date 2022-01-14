@@ -2,6 +2,7 @@ import React from 'react';
 // import Wheel from './Wheel';
 import Screen from './Screen';
 import ZingTouch from 'zingtouch'
+import sound from '../assets/music/Despacito.mp3'
 
 class Ipod extends React.Component{
     constructor(){
@@ -10,7 +11,8 @@ class Ipod extends React.Component{
         this.state = {
             activeItem : 'Wallpapers',
             activePage : 'Home',
-            enter : 0
+            enter : 0,
+            play: true
         }
     }
     rotateWheel = () => {
@@ -144,12 +146,42 @@ class Ipod extends React.Component{
             })
         }   
     }
+
+    toggle = () =>{
+        if(this.state.activePage === 'MyMusic'){
+            if(this.state.play == true){
+                this.state.audio.pause();
+                this.setState({
+                    play : false
+                })
+            }else{
+                this.state.audio.play();
+                this.setState({
+                    play : true
+                })
+            }
+        }
+    }
+
+    componentDidMount(){
+        let audio = document.getElementsByClassName("audio-element")[0];
+        console.log(audio)
+        this.setState({
+            audio : audio,
+        })
+        console.log(this.state)
+    }
+
+
     render(){
         return(
             <div style = {styles.ipodCase}>
                 {/* <Screen />
                 <Wheel /> */}
-                <Screen activeItem={this.state.activeItem} activePage={this.state.activePage}/>
+                <audio className="audio-element">
+                    <source src={sound}></source>
+                </audio>
+                <Screen activeItem={this.state.activeItem} activePage={this.state.activePage} audio={this.state.audio}/>
                 {/*  Wheel Container div */}
                 <div style = {styles.wheelContainer} id ='wheel-container'>
                     {/* Wheel div */}
@@ -171,7 +203,7 @@ class Ipod extends React.Component{
                         </div>
                         {/* Div for button container in top row i.e only play-pause button*/}
                         <div style = {styles.buttonContainer}>
-                            <div style = {styles.playButton}>
+                            <div onClick={this.toggle} style = {styles.playButton}>
                                 <img style = {styles.image} src="https://t4.ftcdn.net/jpg/00/98/69/33/240_F_98693323_3UYg7H6Os6ygn338NLSFLsQndXn56zO0.jpg" alt= ''/>
                             </div>
                         </div>
