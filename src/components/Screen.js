@@ -7,6 +7,7 @@ import Music from './Music';
 import MyMusic from './MyMusic';
 import Artists from './Artists';
 
+// This component will contain all the screen which should be rendered and which should be the default active Item
 class Screen extends React.Component{
     render(){
         return(
@@ -25,6 +26,7 @@ class Screen extends React.Component{
     }
 }
 
+// Styles for Screen Component
 const styles = {
     screen : {
         height : '50%',

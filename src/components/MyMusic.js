@@ -1,17 +1,16 @@
 import React from 'react';
-import sound from '../assets/music/Despacito.mp3'
+// import sound from '../assets/music/Despacito.mp3'
 
+// Class component for MyMusic Screen
 class MyMusic extends React.Component{
-
     constructor(){
+        // We have to call the constructor of parent class that is super() as we are inheriting state constructor in our parent constructor
         super();
         this.state = {
             // audio : null,
             ismounted: true
         }
     }
-
-
     componentDidMount(){
         let self = this;
         // const audioEl = document.getElementsByClassName("audio-element")[0];
@@ -26,7 +25,7 @@ class MyMusic extends React.Component{
         //      document.getElementById("fill").style.width = pos*100 + "%";
         // })
         // self.audio.addEventListener("timeupdate",function(){
-            self.props.audio.addEventListener("timeupdate",function(){
+        self.props.audio.addEventListener("timeupdate",function(){
             if(self.state.isMounted){
                 // var pos = audioEl.currentTime/audioEl.duration;
                 var pos = self.props.audio.currentTime/self.props.audio.duration;
@@ -48,7 +47,9 @@ class MyMusic extends React.Component{
     }
 
     componentWillUnmount(){
-        this.state.isMounted = false;
+        this.setState(
+            {isMounted : false}
+        )
     }
 
     render(){
@@ -61,7 +62,7 @@ class MyMusic extends React.Component{
                     <img style={styles.battery} src="https://cdn-icons-png.flaticon.com/512/31/31570.png" alt =''></img>
                 </div>
                 <div style={styles.info}>
-                    <img style={styles.image} src="https://www.guinnessworldrecords.com/Images/despacito%20header_tcm25-520895.jpg"></img>
+                    <img style={styles.image} src="https://www.guinnessworldrecords.com/Images/despacito%20header_tcm25-520895.jpg" alt=''></img>
                     <div style={styles.subInfo}>
                         {/* <h4>Song Name</h4>
                         <h5>Song Name</h5> */}
@@ -87,6 +88,7 @@ class MyMusic extends React.Component{
 
 }
 
+// Styles for MyMusic Screen Component
 const styles = {
     myMusicContainer : {
         height : '100%',

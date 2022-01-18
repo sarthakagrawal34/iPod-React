@@ -16,6 +16,7 @@ class Ipod extends React.Component{
             play: true
         }
     }
+    // Implementing rotateWheel function using zingtouch library
     rotateWheel = () => {
         // var currentAngle = 15;
         // var containerElement = document.getElementById('wheel-container');
@@ -28,7 +29,7 @@ class Ipod extends React.Component{
 
         if(self.state.enter < 2){
             // activeRegion.bind(childElement, 'rotate', function(event){
-                //Perform Operations
+            //Perform Operations
             activeRegion.bind(containerElement, 'rotate', function(event){
                 var newAngle = event.detail.distanceFromLast;
                 console.log(newAngle);
@@ -39,6 +40,8 @@ class Ipod extends React.Component{
                     if(change === 15){
                         console.log("change state");
                         change = 0;
+                        // If the active page is Home then cursor can move to these values :-
+                        // NowPlaying, Music, Games and Settings
                         if(self.state.activePage === 'Home'){
                             // if(self.state.activeItem === 'Wallpapers'){
                             if(self.state.activeItem === 'NowPlaying'){
@@ -59,7 +62,10 @@ class Ipod extends React.Component{
                                     activeItem : "NowPlaying"
                                 })
                             }
-                        }else if(self.state.activePage === 'Music'){
+                        }
+                        // Else if activePage is Music then cursor can move to following values:- 
+                        // MyMusic and Artists
+                        else if(self.state.activePage === 'Music'){
                             if(self.state.activeItem === 'MyMusic'){
                                 self.setState({
                                     activeItem : "Artists"
@@ -71,12 +77,16 @@ class Ipod extends React.Component{
                             }
                         }
                     }
-                }else{
+                }
+                // if distance from last is greater than or equal to 0
+                else{
                     console.log(change);
                     change++;
                     if(change === 15){
                         console.log("change state");
                         change = 0;
+                        // If the active page is Home then cursor can move to these values :-
+                        // NowPlaying, Music, Games and Settings
                         if(self.state.activePage === 'Home'){
                             // if(self.state.activeItem === 'Wallpapers'){
                             if(self.state.activeItem === 'NowPlaying'){
@@ -97,7 +107,10 @@ class Ipod extends React.Component{
                                     activeItem : "Games"
                                 })
                             }
-                        }else if(self.state.activePage === 'Music'){
+                        }
+                        // Else if activePage is Music then cursor can move to following values:- 
+                        // MyMusic and Artists
+                        else if(self.state.activePage === 'Music'){
                             if(self.state.activeItem === 'MyMusic'){
                                 self.setState({
                                     activeItem : "Artists"
@@ -111,28 +124,36 @@ class Ipod extends React.Component{
                     }
                 }
             });
-        }else{
+        }
+        else{
             console.log("Not allowed to enter")
         }     
     }
-    
+   
+    // Function to change active page
     changePage = () => {
 
         // this.setState({
         //     activeItem : this.state.activeItem,
         //     activePage : this.state.activeItem
         // })
+
+        // if activeItem is Music then on clicking button activeItem changes to MyMusic and active page to Music Page
         if(this.state.activeItem === 'Music'){
             this.setState({
                 activeItem : 'MyMusic',
                 activePage : this.state.activeItem
             })
-        }else if(this.state.activeItem === 'NowPlaying'){
+        }
+        // else if activeItem is NowPlaying then on clicking button activeItem changes to NowPlaying and active page to MyMusic Page
+        else if(this.state.activeItem === 'NowPlaying'){
             this.setState({
                 activeItem : 'NowPlaying',
                 activePage : 'MyMusic'
             })
-        }else{
+        }
+        // else on clicking button activeItem changes to activeItem and active page to activeItem
+        else{
             this.setState({
                 activeItem : this.state.activeItem,
                 activePage : this.state.activeItem
@@ -140,6 +161,7 @@ class Ipod extends React.Component{
         }
     }
 
+    // Function for changePage to HomeScreen when user clicks on menu bars
     changePageToHomeScreen = () => {
         // if(this.state.activePage === 'Music' || this.state.activePage === 'Wallpapers' || this.state.activePage === 'Settings' || this.state.activePage === 'Games'){
         if(this.state.activeItem === 'MyMusic' || this.state.activeItem === 'Artists'){
@@ -158,7 +180,9 @@ class Ipod extends React.Component{
         }   
     }
 
+    // Function for toggling play/pause button
     toggle = () =>{
+        // if the activePage is MyMusic then the toggle button will work which pause the playing and play the pause
         if(this.state.activePage === 'MyMusic'){
             if(this.state.play === true){
                 this.state.audio.pause();
@@ -175,6 +199,7 @@ class Ipod extends React.Component{
         }
     }
 
+    // This will only called once after each rendered and will set a new state audio
     componentDidMount(){
         let audio = document.getElementsByClassName("audio-element")[0];
         console.log(audio)
@@ -184,50 +209,52 @@ class Ipod extends React.Component{
         console.log(this.state)
     }
 
-
+    // Rendering the iPod component
     render(){
         // let play = this.state.play
         return(
             <div style = {styles.ipodCase}>
                 {/* <Screen />
                 <Wheel /> */}
+                {/* The audio tag to embed audio in our iPod */}
                 <audio className="audio-element">
                     <source src={sound}></source>
                 </audio>
+                {/* Passing props (activeItem, activePage, audio) to Screen */}
                 <Screen activeItem={this.state.activeItem} activePage={this.state.activePage} audio={this.state.audio}/>
                 {/*  Wheel Container div */}
                 {/* <div style = {styles.wheelContainer} id ='wheel-container'> */}
-                    {/* Wheel div */}
-                    <div id='inner-container' style = {styles.wheel} onMouseOver = {this.rotateWheel}>
-                        {/* Div for button container in top row i.e only menu button*/}
-                        <div style = {styles.buttonContainer}>
-                            {/* Menu button div */}
-                            <div style = {styles.menuButton}>
-                                {/* <img onClick={this.changePageToHomeScreen} style = {styles.image} src="https://cdn-icons-png.flaticon.com/128/168/168214.png"  alt= ''/> */}
-                                <i onClick={this.changePageToHomeScreen} style = {styles.image} className="fas fa-bars"></i>
-                            </div>
+                {/* Wheel div */}
+                <div id='inner-container' style = {styles.wheel} onMouseOver = {this.rotateWheel}>
+                    {/* Div for button container in top row i.e only menu button*/}
+                    <div style = {styles.buttonContainer}>
+                        {/* Menu button div */}
+                        <div style = {styles.menuButton}>
+                            {/* <img onClick={this.changePageToHomeScreen} style = {styles.image} src="https://cdn-icons-png.flaticon.com/128/168/168214.png"  alt= ''/> */}
+                            <i onClick={this.changePageToHomeScreen} style = {styles.image} className="fas fa-bars"></i>
                         </div>
-                        {/* Div for button container in middle row i.e two buttons*/}
-                        <div style = {styles.buttonContainer}>
-                            <div style = {styles.midButtons}>
-                                {/* <img style = {styles.image} src="https://cdn-icons.flaticon.com/png/128/3318/premium/3318711.png?token=exp=1641963794~hmac=ed3fe6305584a517f20c57388d9fb407" alt= ''/>
-                                <div onClick={this.changePage} style={{backgroundColor : 'lightgrey' , width : '5rem' , height : '5rem' , borderRadius : '50%'}}></div>
-                                <img style = {styles.image} src="https://cdn-icons.flaticon.com/png/128/3318/premium/3318559.png?token=exp=1641963889~hmac=f418d34818b548c0eac4ec42e3b07796" alt= ''/> */}
-                                <i style = {styles.image} className="fas fa-fast-backward"></i>
+                    </div>
+                    {/* Div for button container in middle row i.e two buttons*/}
+                    <div style = {styles.buttonContainer}>
+                        <div style = {styles.midButtons}>
+                            {/* <img style = {styles.image} src="https://cdn-icons.flaticon.com/png/128/3318/premium/3318711.png?token=exp=1641963794~hmac=ed3fe6305584a517f20c57388d9fb407" alt= ''/>
+                            <div onClick={this.changePage} style={{backgroundColor : 'lightgrey' , width : '5rem' , height : '5rem' , borderRadius : '50%'}}></div>
+                            <img style = {styles.image} src="https://cdn-icons.flaticon.com/png/128/3318/premium/3318559.png?token=exp=1641963889~hmac=f418d34818b548c0eac4ec42e3b07796" alt= ''/> */}
+                            <i style = {styles.image} className="fas fa-fast-backward"></i>
                             <div onClick={this.changePage} style={{backgroundImage: 'linear-gradient(45deg, #8c8181, transparent)' , width : '5rem' , height : '5rem' , borderRadius : '50%'}}></div>
                             <i style = {styles.image} className="fas fa-fast-forward"></i>
-                            </div>
                         </div>
-                        {/* Div for button container in top row i.e only play-pause button*/}
-                        <div style = {styles.buttonContainer}>
-                            <div onClick={this.toggle} style = {styles.playButton}>
-                                {/* <img style = {styles.image} src="https://t4.ftcdn.net/jpg/00/98/69/33/240_F_98693323_3UYg7H6Os6ygn338NLSFLsQndXn56zO0.jpg" alt= ''/> */}
-                                <i onClick={this.toggle} style = {styles.image} className="fas fa-play"></i>:<i onClick={this.toggle} style = {styles.image} class="fas fa-pause"></i>
-                            </div>
+                    </div>
+                    {/* Div for button container in top row i.e only play-pause button*/}
+                    <div style = {styles.buttonContainer}>
+                        <div onClick={this.toggle} style = {styles.playButton}>
+                            {/* <img style = {styles.image} src="https://t4.ftcdn.net/jpg/00/98/69/33/240_F_98693323_3UYg7H6Os6ygn338NLSFLsQndXn56zO0.jpg" alt= ''/> */}
+                            <i onClick={this.toggle} style = {styles.image} className="fas fa-play"></i>:<i onClick={this.toggle} style = {styles.image} class="fas fa-pause"></i>                            
                         </div>
                     </div>
                 </div>
-            // </div>
+                {/* </div> */}
+            </div>
         );
     }  
 }

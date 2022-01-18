@@ -1,6 +1,7 @@
 import React from 'react';
 import { ListGroup } from 'react-bootstrap';
 
+// This component is for Home screen display
 class Home extends React.Component{
     render(){
         // let self = this;
@@ -50,6 +51,7 @@ class Home extends React.Component{
     }
 }
 
+// Styles for Home Screen Component
 const styles = {
     homeScreen : {
         height : '100%',

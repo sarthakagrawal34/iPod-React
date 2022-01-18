@@ -1,6 +1,7 @@
 import React from 'react';
-import artistImage from '../assets/images/artist.jpg';
+import artistImage from '../assets/images/artist.jpeg';
 
+// Class component for Artists Screen
 class Artists extends React.Component{
     render(){
         return(
@@ -13,7 +14,7 @@ class Artists extends React.Component{
                     <div style={styles.imageContainer}>
                     </div>
                     <div style={styles.subInfo}>
-                        <h4 style={{marginBottom:'0.5rem'}}>IPod.js <span><img style={styles.image} src="https://cdn-icons.flaticon.com/png/512/471/premium/471713.png?token=exp=1642144331~hmac=b75239e6498d362f690f67e3d4ea2a35" alt =''/></span></h4>
+                        <h4 style={{marginBottom:'0.5rem'}}>IPod.js <span><img style={styles.image} src="https://cdn-icons-png.flaticon.com/128/447/447591.png" alt =''/></span></h4>
                         <p style={{marginBottom:'0'}}> React Project</p>
                         <p>Made by : Sarthak Agrawal</p>
                     </div>
@@ -26,6 +27,7 @@ class Artists extends React.Component{
     }
 }
 
+// Styles for Artists Screen Component
 const styles = {
     artistsContainer : {
         height : '100%',
@@ -39,6 +41,7 @@ const styles = {
         borderRadius : '50%',
         // backgroundImage : `url("https://www.guinnessworldrecords.com/Images/despacito%20header_tcm25-520895.jpg")`,
         backgroundImage : `url(${artistImage})`,
+        backgroundPosition: '61% 73%',
         alignSelf : 'center'
     },
     image : {

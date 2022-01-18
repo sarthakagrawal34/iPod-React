@@ -1,6 +1,7 @@
 import React from 'react';
 import { ListGroup } from 'react-bootstrap';
 
+// Class component for Music Screen
 class Music extends React.Component{
     render(){
         return(
@@ -13,7 +14,7 @@ class Music extends React.Component{
                     </div>
                     <ListGroup style={{borderRadius:'0'}}>
                         <ListGroup.Item style={{border:'0',padding: '0.2rem 0.6rem'}} className={this.props.activeItem==='MyMusic'?'active':''}>
-                            My Music {this.props.activeItem==='MyMusic'?<span style={{float:'right' ,fontWeight:'bold'}}>&gt;</span>:''}
+                            All Songs {this.props.activeItem==='MyMusic'?<span style={{float:'right' ,fontWeight:'bold'}}>&gt;</span>:''}
                         </ListGroup.Item>
                         <ListGroup.Item style={{border:'0',padding: '0.2rem 0.6rem'}} className={this.props.activeItem==='Artists'?'active':''}>
                             Artists {this.props.activeItem==='Artists'?<span style={{float:'right' ,fontWeight:'bold'}}>&gt;</span>:''}
@@ -28,6 +29,7 @@ class Music extends React.Component{
     }
 }
 
+// Styles for Music Screen Component
 const styles = {
     musicScreen : {
         height : '100%',

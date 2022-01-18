@@ -1,9 +1,10 @@
 import React from 'react';
 
+// Class component for Games Screen
 class Games extends React.Component{
     render(){
         return(
-            <div style={styles.settings} >
+            <div style={styles.games} >
                 {/* <img style={styles.image} src="https://media.giphy.com/media/ASArOAGohOe1NFRhE1/giphy.gif" /> */}
                 <div style={styles.titleBar}>
                     <p style={{fontWeight:'bold'}}>iPod</p>
@@ -17,8 +18,9 @@ class Games extends React.Component{
     }
 }
 
+// Styles for Games Screen Component
 const styles = {
-    settings : {
+    games : {
         width : '100%',
         height : '100%',
         display : 'flex',
